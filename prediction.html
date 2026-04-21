@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CasaPredict</title>
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./assets/images/casa_predict_logo.png" type="image/x-icon">
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header" data-header>
+
+        <div class="overlay" data-overlay></div>
+
+        <div class="header-top">
+            <div class="container">
+
+                <ul class="header-top-list">
+
+                    <li>
+                        <a href="https://fr.wikipedia.org/wiki/Casablanca_(film)" class="header-top-link">
+                            <ion-icon name="location-outline"></ion-icon>
+
+                            <address>Casablanca, Morocco</address>
+                        </a>
+                    </li>
+
+                </ul>
+
+
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <div class="container">
+
+                <nav class="navbar" data-navbar>
+
+                    <div class="navbar-top">
+
+                        <a href="#" class="logo">
+                            <img src="./assets/images/casa_predict_logo.png" alt="Homeverse logo">
+                        </a>
+
+                        <button class="nav-close-btn" data-nav-close-btn aria-label="Close Menu">
+                            <ion-icon name="close-outline"></ion-icon>
+                        </button>
+
+                    </div>
+
+                    <div class="navbar-bottom">
+                        <ul class="navbar-list">
+
+                            <li>
+                                <a href="/index.html" class="navbar-link" data-nav-link>Home</a>
+                            </li>
+
+                            <li>
+                                <a href="/index.html#about" class="navbar-link" data-nav-link>About</a>
+                            </li>
+
+                            <li>
+                                <a href="/index.html#service" class="navbar-link" data-nav-link>Service</a>
+                            </li>
+
+                            <li>
+                                <a href="/index.html#property" class="navbar-link" data-nav-link>Property</a>
+                            </li>
+
+                            <li>
+                                <a href="/index.html/#criteria" class="navbar-link" data-nav-link>Criteria</a>
+                            </li>
+
+                            <li>
+                                <a href="/index.html#footer" class="navbar-link" data-nav-link>Contact</a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </nav>
+
+
+
+            </div>
+        </div>
+
+    </header>
+
+
+    <main>
+        <article>
+            <section class="predict">
+
+                <div class="container">
+
+                    <h2 class="h2 section-title">Predict Prices</h2>
+                    <p class="section-subtitle">
+                        Predict The Price Of Your House With Machine Learning.
+                    </p>
+
+                    <form class="form">
+                        <label for="longitude">Longitude:</label><br>
+                        <input type="number" id="longitude" name="longitude" step="0.01" required><br>
+                        <label for="latitude">Latitude:</label><br>
+                        <input type="number" id="latitude" name="latitude" step="0.01" required><br>
+                        <label for="housing_median_age">Housing Median Age:</label><br>
+                        <input type="number" id="housing_median_age" name="housing_median_age" required><br>
+                        <label for="total_rooms">Total Rooms:</label><br>
+                        <input type="number" id="total_rooms" name="total_rooms" required><br>
+                        <label for="total_bedrooms">Total Bedrooms:</label><br>
+                        <input type="number" id="total_bedrooms" name="total_bedrooms" required><br>
+                        <label for="population">Population:</label><br>
+                        <input type="number" id="population" name="population" required><br>
+                        <label for="households">Households:</label><br>
+                        <input type="number" id="households" name="households" required><br>
+                        <label for="median_income">Median Income:</label><br>
+                        <input type="number" id="median_income" name="median_income" step="0.01" required><br>
+                        <label for="ocean_proximity">Ocean Proximity:</label><br>
+                        <select id="ocean_proximity" name="ocean_proximity" required>
+                            <option value="">Select an option</option>
+                            <option value="NEAR BAY">NEAR BAY</option>
+                            <option value="INLAND">INLAND</option>
+                            <option value="NEAR OCEAN">NEAR OCEAN</option>
+                            <option value="ISLAND">ISLAND</option>
+                        </select><br>
+                        <input type="submit" value="Submit">
+                    </form>
+
+                </div>
+
+
+            </section>
+        </article>
+    </main>
+
+
+
+
+
+
+
+
+    <footer class="footer">
+
+        <div class="footer-top">
+            <div class="container">
+
+                <div class="footer-brand">
+
+                    <a href="#" class="logo">
+                        <img src="./assets/images/casa_predict_logo.png" width="100" height="100"
+                            alt="Casa Predict logo">
+                    </a>
+
+                    <ul class="contact-list">
+
+                        <li>
+                            <a href="#" class="contact-link">
+                                <ion-icon name="location-outline"></ion-icon>
+
+                                <address>Casablanca, Morocco</address>
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+                </div>
+
+                <div class="footer-link-box">
+
+                    <ul class="footer-list">
+
+                        <li>
+                            <p class="footer-list-title">Company</p>
+                        </li>
+
+                        <li>
+                            <a href="#about" class="footer-link">About</a>
+                        </li>
+
+                        <li>
+                            <a href="https://github.com/Belrayy/CasaPredict" class="footer-link">Contact us</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="footer-link">FAQ</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </footer>
+
+
+
+
+
+    <!-- 
+    - custom js link
+  -->
+    <script src="./assets/js/script.js"></script>
+
+    <!-- 
+    - ionicon link
+  -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>

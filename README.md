@@ -38,7 +38,7 @@ Casa Predict is a web application that uses machine learning and deep learning a
 
 - Frontend: React.js
 - Backend: Node.js
-- Machine Learning: Pytorch, Scikit-learn
+- Machine Learning: Pytorch, TensorFlow, Scikit-learn
 
 ## License
 
