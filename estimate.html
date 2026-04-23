@@ -28,7 +28,7 @@
 </head>
 
 <body>
-<header class="header" data-header>
+  <header class="header" data-header>
 
     <div class="overlay" data-overlay></div>
 
@@ -100,7 +100,7 @@
 
         </nav>
 
-        
+
 
       </div>
     </div>
@@ -108,6 +108,102 @@
   </header>
 
 
+  <main>
+    <article>
+      <section class="estimate">
+
+        <div class="container">
+
+          <h2 class="h2 section-title">Estimate Prices</h2>
+          <p class="section-subtitle">
+            Get An Accurate Estimate Of A Neighborhood's Value.
+          </p>
+
+          <form class="form">
+            <label for="longitude">Longitude:</label><br>
+            <input type="number" id="longitude" name="longitude" step="0.01" required><br>
+            <label for="latitude">Latitude:</label><br>
+            <input type="number" id="latitude" name="latitude" step="0.01" required><br>
+            <label for="housing_median_age">Housing Median Age:</label><br>
+            <input type="number" id="housing_median_age" name="housing_median_age" required><br>
+            <label for="total_rooms">Total Rooms:</label><br>
+            <input type="number" id="total_rooms" name="total_rooms" required><br>
+            <label for="total_bedrooms">Total Bedrooms:</label><br>
+            <input type="number" id="total_bedrooms" name="total_bedrooms" required><br>
+            <label for="population">Population:</label><br>
+            <input type="number" id="population" name="population" required><br>
+            <label for="households">Households:</label><br>
+            <input type="number" id="households" name="households" required><br>
+            <label for="median_income">Median Income:</label><br>
+            <input type="number" id="median_income" name="median_income" step="0.01" required><br>
+            <label for="ocean_proximity">Ocean Proximity:</label><br>
+            <select id="ocean_proximity" name="ocean_proximity" required>
+              <option value="">Select an option</option>
+              <option value="NEAR BAY">NEAR BAY</option>
+              <option value="INLAND">INLAND</option>
+              <option value="NEAR OCEAN">NEAR OCEAN</option>
+              <option value="ISLAND">ISLAND</option>
+            </select><br>
+            <input type="submit" value="Submit">
+          </form>
+
+        </div>
+        <div id="result" class="result"></div>
+        <script>
+          document.querySelector('.form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const form = e.target;
+            const data = {
+              longitude: parseFloat(form.longitude.value),
+              latitude: parseFloat(form.latitude.value),
+              housing_median_age: parseInt(form.housing_median_age.value),
+              total_rooms: parseInt(form.total_rooms.value),
+              total_bedrooms: parseInt(form.total_bedrooms.value),
+              population: parseInt(form.population.value),
+              households: parseInt(form.households.value),
+              median_income: parseFloat(form.median_income.value),
+              ocean_proximity: form.ocean_proximity.value
+            };
+
+            try {
+              const response = await fetch('http://localhost:8000/estimate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+              });
+
+              const result = await response.json();
+
+              const formattedPrice = new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: result.devise || 'USD'
+              }).format(result.prix_estime);
+
+              document.getElementById('result').innerHTML = `
+                <div class="card-content" style="max-width: 500px; margin: 30px auto 0 auto; background: var(--white); border-radius: 12px; box-shadow: var(--shadow-2); padding: 32px 24px;">
+                  <h3 class="h3" style="color: var(--orange-soda); margin-bottom: 12px; text-align:center;">Estimated Price</h3>
+                  <div class="card-price" style="font-size: 2rem; text-align:center; margin-bottom: 18px;">
+                    <strong>${formattedPrice}</strong>
+                  </div>
+                  <ul class="card-list" style="margin-bottom: 12px;">
+                    <li class="card-item"><span style="font-weight:600;">Range:</span> ${result.fourchette_basse.toLocaleString()} - ${result.fourchette_haute.toLocaleString()} ${result.devise}</li>
+                    <li class="card-item"><span style="font-weight:600;">Confidence:</span> ${result.confiance.score}% (${result.confiance.niveau})</li>
+                  </ul>
+                  <p class="card-text" style="font-size: 1em; color: var(--cadet); margin-bottom: 8px;">${result.interpretation}</p>
+                  <p style="font-size: 0.85em; color: var(--opal); text-align:right;">Model: ${result.modele}</p>
+                </div>
+              `;
+            } catch (err) {
+              console.error('Error:', err);
+              document.getElementById('result').innerText = 'Error: Could not get estimate.';
+            }
+          });
+        </script>
+
+
+      </section>
+    </article>
+  </main>
 
 
 
@@ -116,8 +212,7 @@
 
 
 
-
-    <footer class="footer">
+  <footer class="footer">
 
     <div class="footer-top">
       <div class="container">
@@ -139,7 +234,7 @@
             </li>
           </ul>
 
-        
+
 
         </div>
 
@@ -152,15 +247,11 @@
             </li>
 
             <li>
-              <a href="#about" class="footer-link">About</a>
+              <a href="/index.html#about" class="footer-link">About</a>
             </li>
 
             <li>
               <a href="https://github.com/Belrayy/CasaPredict" class="footer-link">Contact us</a>
-            </li>
-
-            <li>
-              <a href="#" class="footer-link">FAQ</a>
             </li>
 
           </ul>
@@ -170,18 +261,11 @@
       </div>
     </div>
 
-  
+
 
   </footer>
 
-  <main>
-    <article>
-      <section class="predict">
-        
 
-      </section>
-    </article>
-  </main>
 
 
 
